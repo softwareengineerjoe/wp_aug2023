@@ -1,6 +1,6 @@
 import profile from "./assets/profile.jpeg";
 import { HiArrowLongRight } from "react-icons/hi2";
-import resume from "./assets/resume.pdf"
+import resume from "./assets/resume.pdf";
 
 export default function App() {
   return (
@@ -38,8 +38,9 @@ export default function App() {
           <p className={pStyles}>2022</p>
         </div>
         <p className={pStyles}>
-          An ecommerce dropshipping web application powered by Shopify that
-          sells jewelry products.
+          Arte|Amor Jewelry Store are perfect for your innovation as well as for
+          your fashion. We provide you the best quality products for your
+          convenience.
         </p>
 
         <a
@@ -50,6 +51,7 @@ export default function App() {
           <p className={pStyles}>arteamores.com</p> <HiArrowLongRight />
         </a>
       </div>
+
       <div className={cardStyles}>
         <div className="flex flex-1 justify-between">
           <h2 className={h3}>Tarot ni Alma</h2>
@@ -69,6 +71,30 @@ export default function App() {
           <HiArrowLongRight />
         </a>
       </div>
+
+      <div className={cardStyles}>
+        <div className="flex flex-1 justify-between">
+          <h2 className={h3}>Whoopscommerce</h2>
+          <p className={pStyles}>2023</p>
+        </div>
+        <p className={pStyles}>
+          Welcome to Whoopscommerce, your premium destination for online
+          shopping redefined. Immerse yourself in a world where style,
+          convenience, and sophistication converge. Explore our curated
+          collection of products that blend quality craftsmanship with modern
+          flair, and enjoy a seamless shopping journey that brings the joy back
+          to every click.
+        </p>
+
+        <a
+          href="https://whoopscommerce.netlify.app/"
+          target="_blank"
+          className="flex flex-row gap-2 items-center w-fit hover:opacity-80"
+        >
+          <p className={pStyles}>whoopscommerce.netlify.app</p>{" "}
+          <HiArrowLongRight />
+        </a>
+      </div>
       {/* PROJECT [END] */}
 
       <div className="border-b-2" />
@@ -77,8 +103,17 @@ export default function App() {
       <footer className={footerStyles}>
         <p>2023 - Mc-Jo Maranan</p>
         <div className="flex flex-row gap-2">
-          <a className="hover:opacity-80" href="#home">home</a>/<a className="hover:opacity-80" href="#projects">projects</a>/
-          <a className="hover:opacity-80" href={resume} download>resume</a>
+          <a className="hover:opacity-80" href="#home">
+            home
+          </a>
+          /
+          <a className="hover:opacity-80" href="#projects">
+            projects
+          </a>
+          /
+          <a className="hover:opacity-80" href={resume} download>
+            resume
+          </a>
         </div>
       </footer>
       {/* FOOTER [END]*/}
@@ -87,7 +122,7 @@ export default function App() {
 }
 
 const layout =
-  "max-w-3xl w-full mx-auto flex py-12 space-y-8 flex-col px-4 md:px-6 lg:px-8";
+  "max-w-4xl w-full mx-auto flex py-12 space-y-8 flex-col px-4 md:px-6 lg:px-8";
 const imgStyles = "object-cover rounded-full w-36 h-auto grayscale";
 const h1 = "font-bold text-4xl";
 const h2 = "font-bold text-3xl";
