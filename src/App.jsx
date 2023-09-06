@@ -1,12 +1,36 @@
+const theme = atom(false);
+
 import profile from "./assets/profile.jpeg";
-import { HiArrowLongRight, HiMiniMoon, HiMiniLightBulb } from "react-icons/hi2";
+import {
+  HiArrowLongRight,
+  HiMiniMoon,
+  HiMiniLightBulb,
+  HiArrowLeft,
+  HiArrowRight,
+} from "react-icons/hi2";
 import resume from "./assets/resume.pdf";
 import { atom, useAtom } from "jotai";
-import { useEffect } from "react";
-const theme = atom(false);
+import { useEffect, useState } from "react";
+import tcs1 from "./assets/images/tcs1.jpg";
+import tcs2 from "./assets/images/tcs2.jpg";
+import lft from "./assets/images/lft.jpg";
+import gcash from "./assets/images/gcash.jpg";
 
 export default function App() {
   const [isDarkMode, setIsDarkMode] = useAtom(theme);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const images = [tcs1, tcs2, gcash, lft];
+
+  const nextImage = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
 
   useEffect(() => {
     // Check if the user's preferred color scheme is dark
@@ -21,18 +45,10 @@ export default function App() {
     const darkModeChangeListener = (e) => {
       setIsDarkMode(e.matches);
     };
-
-    darkModeMediaQuery.addListener(darkModeChangeListener);
-
-    // Clean up the listener when the component unmounts
-    return () => {
-      darkModeMediaQuery.removeListener(darkModeChangeListener);
-    };
   }, []);
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
-    // Your existing toggleTheme function code here
   };
 
   return (
@@ -92,7 +108,7 @@ export default function App() {
 
           {/* <p className={pStyles}>See all</p> */}
         </div>
-        <div
+        {/* <div
           className={`rounded-xl p-4 flex flex-col space-y-4 ${
             isDarkMode
               ? "bg-[#1e1e1e] text-[#cccccc]"
@@ -115,6 +131,34 @@ export default function App() {
             className="flex flex-row gap-2 items-center w-fit hover:opacity-80"
           >
             <p className={pStyles}>arteamores.com</p> <HiArrowLongRight />
+          </a>
+        </div> */}
+
+        <div
+          className={`rounded-xl p-4 flex flex-col space-y-4 ${
+            isDarkMode
+              ? "bg-[#1e1e1e] text-[#cccccc]"
+              : "bg-gray-100 text-black"
+          }`}
+        >
+          <div className="flex flex-1 justify-between">
+            <h2 className={h3}>Kurtis Classroom</h2>
+            <p className={pStyles}>2023</p>
+          </div>
+          <p className={pStyles}>
+            Kurtis Classroom is an innovative AI-powered web application
+            designed to revolutionize the way students learn by infusing the
+            power of gamification into their educational journey. With Kurtis
+            Classroom, learning becomes not just engaging but also incredibly
+            fun.
+          </p>
+
+          <a
+            href="https://landing-page-digiteer-maranan.netlify.app/"
+            target="_blank"
+            className="flex flex-row gap-2 items-center w-fit hover:opacity-80"
+          >
+            <p className={pStyles}>visit website</p> <HiArrowLongRight />
           </a>
         </div>
 
@@ -139,8 +183,7 @@ export default function App() {
             target="_blank"
             className="flex flex-row gap-2 items-center w-fit hover:opacity-80"
           >
-            <p className={pStyles}>tarot-ni-alma.netlify.app</p>{" "}
-            <HiArrowLongRight />
+            <p className={pStyles}>visit website</p> <HiArrowLongRight />
           </a>
         </div>
 
@@ -169,11 +212,84 @@ export default function App() {
             target="_blank"
             className="flex flex-row gap-2 items-center w-fit hover:opacity-80"
           >
-            <p className={pStyles}>whoopscommerce.netlify.app</p>{" "}
-            <HiArrowLongRight />
+            <p className={pStyles}>visit website</p> <HiArrowLongRight />
+          </a>
+        </div>
+
+        <div
+          className={`rounded-xl p-4 flex flex-col space-y-4 ${
+            isDarkMode
+              ? "bg-[#1e1e1e] text-[#cccccc]"
+              : "bg-gray-100 text-black"
+          }`}
+        >
+          <div className="flex flex-1 justify-between">
+            <h2 className={h3}>Roni AI</h2>
+            <p className={pStyles}>2023</p>
+          </div>
+          <p className={pStyles}>
+            Meet Roni AI — your AI finance assistant that will analyze your
+            business. Gain a deeper understanding of your finances and make
+            informed decisions in a snap!
+          </p>
+
+          <a
+            href="https://www.roni.ai/"
+            target="_blank"
+            className="flex flex-row gap-2 items-center w-fit hover:opacity-80"
+          >
+            <p className={pStyles}>visit website</p> <HiArrowLongRight />
           </a>
         </div>
         {/* PROJECT [END] */}
+
+        <div className="border-b-2" />
+
+        <div id="gallery" className="flex flex-1 justify-between">
+          <h2 className={h2}>Gallery</h2>
+        </div>
+
+        <div
+          className={`flex flex-row rounded-xl justify-between ${
+            isDarkMode ? "bg-[#1e1e1e]" : "bg-gray-100"
+          }`}
+        >
+          <button
+            className="hover:opacity-80 mx-4 md:mx-6 lg:mx-8 h-fit my-auto"
+            onClick={prevImage}
+          >
+            <HiArrowLeft style={{ fontSize: "1rem" }} className="md:hidden" />
+            <HiArrowLeft
+              style={{ fontSize: "2rem" }}
+              className="hidden md:block lg:hidden"
+            />
+            <HiArrowLeft
+              style={{ fontSize: "2.5rem" }}
+              className="hidden lg:block"
+            />
+          </button>
+          <img
+            src={images[currentIndex]}
+            alt={`Image ${currentIndex + 1}`}
+            className={`${
+              isDarkMode ? "grayscale" : ""
+            } object-cover w-auto h-40 md:h-64 lg:h-80`}
+          />
+          <button
+            className="hover:opacity-80 mx-4 md:mx-6 lg:mx-8 h-fit my-auto"
+            onClick={nextImage}
+          >
+            <HiArrowRight style={{ fontSize: "1rem" }} className="md:hidden" />
+            <HiArrowRight
+              style={{ fontSize: "2rem" }}
+              className="hidden md:block lg:hidden"
+            />
+            <HiArrowRight
+              style={{ fontSize: "2.5rem" }}
+              className="hidden lg:block"
+            />
+          </button>
+        </div>
 
         <div className="border-b-2" />
 
