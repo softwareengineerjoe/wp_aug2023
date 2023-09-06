@@ -45,7 +45,7 @@ export default function App() {
           onClick={toggleTheme}
           className={`${
             isDarkMode ? "text-white bg-[#cccccc]" : "text-black bg-gray-100"
-          } py-0.5 px-0.5 rounded-full w-14 absolute top-20 right-8`}
+          } py-0.5 px-0.5 rounded-full w-14 absolute top-20 right-4 md:right-6 lg:right-8`}
         >
           {isDarkMode ? (
             <div className="bg-black rounded-full w-fit text-white p-1">
