@@ -11,16 +11,24 @@ import {
 import resume from "./assets/resume.pdf";
 import { atom, useAtom } from "jotai";
 import { useEffect, useState } from "react";
+import { motion, useAnimation } from "framer-motion";
 import tcs1 from "./assets/images/tcs1.jpg";
 import tcs2 from "./assets/images/tcs2.jpg";
 import lft from "./assets/images/lft.jpg";
 import gcash from "./assets/images/gcash.jpg";
+import aws1 from "./assets/certifications/cert_aws1.png";
+import aws2 from "./assets/certifications/cert_aws2.png";
+import backend from "./assets/certifications/cert_backend.png";
+import frontend from "./assets/certifications/cert_frontend.png";
+import fullstack from "./assets/certifications/cert_fullstack.png";
+import responsive from "./assets/certifications/cert_responsive_design.png";
 
 export default function App() {
   const [isDarkMode, setIsDarkMode] = useAtom(theme);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const images = [tcs1, tcs2, gcash, lft];
+  const certificates = [aws1, aws2, backend, frontend, fullstack, responsive];
 
   const nextImage = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -40,17 +48,29 @@ export default function App() {
 
     // Set the initial state based on the user's preferred color scheme
     setIsDarkMode(darkModeMediaQuery.matches);
-
-    // Listen for changes in the user's preferred color scheme
-    const darkModeChangeListener = (e) => {
-      setIsDarkMode(e.matches);
-    };
   }, []);
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
   };
 
+  const controls = useAnimation();
+
+  // Function to start the marquee animation
+  const startMarquee = async () => {
+    while (true) {
+      await controls.start({
+        x: -2200,
+        transition: { duration: 20, ease: "linear" },
+      });
+      await controls.start({ x: 0, transition: { duration: 0 } });
+    }
+  };
+
+  // Start the marquee animation when the component mounts
+  useEffect(() => {
+    startMarquee();
+  }, []);
   return (
     <div
       className={`${isDarkMode ? "bg-[#121212] text-[#cccccc]" : "bg-white"}`}
@@ -243,6 +263,8 @@ export default function App() {
         </div>
         {/* PROJECT [END] */}
 
+        {/* GALLERY [START] */}
+
         <div className="border-b-2" />
 
         <div id="gallery" className="flex flex-1 justify-between">
@@ -290,6 +312,33 @@ export default function App() {
             />
           </button>
         </div>
+        {/* GALLERY [END] */}
+
+        {/* CERTIFICATIONS [END] */}
+
+        <div className="border-b-2" />
+
+        <div id="certifications" className="flex flex-1 justify-between">
+          <h2 className={h2}>Certifications</h2>
+        </div>
+
+        <div className="w-full overflow-hidden">
+          <motion.div
+            className="flex flex-row whitespace-nowrap items-center justify-between gap-16"
+            animate={controls}
+          >
+            {certificates.map((certificate, index) => (
+              <img
+                key={index}
+                src={certificate}
+                alt={`Certificate ${index}`}
+                className={`${isDarkMode ? "grayscale" : ""} h-56 md:h-80 w-auto`}
+              />
+            ))}
+          </motion.div>
+        </div>
+
+        {/* CERTIFICATIONS [START] */}
 
         <div className="border-b-2" />
 
