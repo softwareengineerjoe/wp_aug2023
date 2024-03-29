@@ -126,8 +126,7 @@ export default function App() {
           proficiency in the tech domain.
           <div className="p-4" />
           Alongside my professional endeavors, I engage in freelance development
-          projects showcased on my web portfolio at
-          www.softwareengineerjoe.netlify.app. With an unwavering commitment to
+          projects. With an unwavering commitment to
           personal and professional growth, I eagerly embrace each opportunity
           to expand my knowledge and expertise across diverse industries. Let's
           connect and explore synergies in our respective journeys!
