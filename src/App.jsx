@@ -41,12 +41,10 @@ export default function App() {
   };
 
   useEffect(() => {
-    // Check if the user's preferred color scheme is dark
     const darkModeMediaQuery = window.matchMedia(
       "(prefers-color-scheme: dark)"
     );
 
-    // Set the initial state based on the user's preferred color scheme
     setIsDarkMode(darkModeMediaQuery.matches);
   }, []);
 
@@ -56,7 +54,6 @@ export default function App() {
 
   const controls = useAnimation();
 
-  // Function to start the marquee animation
   const startMarquee = async () => {
     while (true) {
       await controls.start({
@@ -67,7 +64,6 @@ export default function App() {
     }
   };
 
-  // Start the marquee animation when the component mounts
   useEffect(() => {
     startMarquee();
   }, []);
@@ -106,12 +102,35 @@ export default function App() {
           Hey, I’m Joe. I'm a freelance front-end developer based in Cavite,
           Philippines.
         </h1>
-        <p className={pStyles}>
+        <p className={`${pStyles} prose`}>
           {" "}
-          By understanding your business's unique needs, I create websites that
+          {/* By understanding your business's unique needs, I create websites that
           convey your story, values, and offerings effectively. Let's
           collaborate to build a solid foundation that propels your startup to
-          new heights.
+          new heights. */}
+          As a driven undergraduate in BS Agrientrepreneurship, I embarked on a
+          dynamic journey amid the challenges of the COVID era. Transitioning
+          from academia to the professional sphere, I embraced a role as an
+          Account and Fraud Specialist with PayPal, where I honed invaluable
+          skills in customer service over a rewarding 7-month tenure. It was
+          during this time that I found myself drawn to the realm of freelancing
+          and the burgeoning tech industry.
+          <div className="p-4" />
+          Fuelled by curiosity and ambition, I delved into the realm of web
+          development, concentrating my efforts on frontend expertise. Within a
+          mere two months of dedicated study, I secured my inaugural position
+          with Pisopay, where I continued to expand my skill set and refine my
+          craft for a further 6 months. Presently, I thrive in my role as a
+          Customer Champion Consultant with One New Zealand, seamlessly
+          integrating my passion for customer service with my growing
+          proficiency in the tech domain.
+          <div className="p-4" />
+          Alongside my professional endeavors, I engage in freelance development
+          projects showcased on my web portfolio at
+          www.softwareengineerjoe.netlify.app. With an unwavering commitment to
+          personal and professional growth, I eagerly embrace each opportunity
+          to expand my knowledge and expertise across diverse industries. Let's
+          connect and explore synergies in our respective journeys!
         </p>
         <a
           href="https://www.linkedin.com/in/softwareengineerjoe/"
@@ -261,6 +280,64 @@ export default function App() {
             <p className={pStyles}>visit website</p> <HiArrowLongRight />
           </a>
         </div>
+
+        <div
+          className={`rounded-xl p-4 flex flex-col space-y-4 ${
+            isDarkMode
+              ? "bg-[#1e1e1e] text-[#cccccc]"
+              : "bg-gray-100 text-black"
+          }`}
+        >
+          <div className="flex flex-1 justify-between">
+            <h2 className={h3}>Rumine Labs</h2>
+            <p className={pStyles}>2023</p>
+          </div>
+          <p className={pStyles}>
+            Rumine Labs is a multicultural startup team based in Singapore,
+            India, Taiwan, and the Philippines, dedicated to developing
+            NorthStar, a cutting-edge journal productivity app driven by AI.
+            NorthStar empowers users worldwide to manage their lives more
+            efficiently, offering intelligent insights and actionable advice.
+            Join us as we revolutionize personal productivity and help users
+            take control of their journey with NorthStar.
+          </p>
+
+          <a
+            href="https://ruminelabs.com/"
+            target="_blank"
+            className="flex flex-row gap-2 items-center w-fit hover:opacity-80"
+          >
+            <p className={pStyles}>visit website</p> <HiArrowLongRight />
+          </a>
+        </div>
+
+        <div
+          className={`rounded-xl p-4 flex flex-col space-y-4 ${
+            isDarkMode
+              ? "bg-[#1e1e1e] text-[#cccccc]"
+              : "bg-gray-100 text-black"
+          }`}
+        >
+          <div className="flex flex-1 justify-between">
+            <h2 className={h3}>Gradmission</h2>
+            <p className={pStyles}>2024</p>
+          </div>
+          <p className={pStyles}>
+            Introducing Gradmission: a platform where graduate students, whether
+            pursuing a master's or PhD, share their expertise through
+            personalized statements, helping aspiring learners globally achieve
+            academic success. Access invaluable insights and guidance tailored
+            to your educational journey today.
+          </p>
+
+          <a
+            href="https://gradmission.com/"
+            target="_blank"
+            className="flex flex-row gap-2 items-center w-fit hover:opacity-80"
+          >
+            <p className={pStyles}>visit website</p> <HiArrowLongRight />
+          </a>
+        </div>
         {/* PROJECT [END] */}
 
         {/* GALLERY [START] */}
@@ -332,7 +409,9 @@ export default function App() {
                 key={index}
                 src={certificate}
                 alt={`Certificate ${index}`}
-                className={`${isDarkMode ? "grayscale" : ""} h-56 md:h-80 w-auto`}
+                className={`${
+                  isDarkMode ? "grayscale" : ""
+                } h-56 md:h-80 w-auto`}
               />
             ))}
           </motion.div>
