@@ -126,10 +126,10 @@ export default function App() {
           proficiency in the tech domain.
           <div className="p-4" />
           Alongside my professional endeavors, I engage in freelance development
-          projects. With an unwavering commitment to
-          personal and professional growth, I eagerly embrace each opportunity
-          to expand my knowledge and expertise across diverse industries. Let's
-          connect and explore synergies in our respective journeys!
+          projects. With an unwavering commitment to personal and professional
+          growth, I eagerly embrace each opportunity to expand my knowledge and
+          expertise across diverse industries. Let's connect and explore
+          synergies in our respective journeys!
         </p>
         <a
           href="https://www.linkedin.com/in/softwareengineerjoe/"
@@ -330,7 +330,37 @@ export default function App() {
           </p>
 
           <a
-            href="https://gradmission.com/"
+            // href="https://gradmission.com/"
+            href="https://gradmission.vercel.app/"
+            target="_blank"
+            className="flex flex-row gap-2 items-center w-fit hover:opacity-80"
+          >
+            <p className={pStyles}>visit website</p> <HiArrowLongRight />
+          </a>
+        </div>
+
+        <div
+          className={`rounded-xl p-4 flex flex-col space-y-4 ${
+            isDarkMode
+              ? "bg-[#1e1e1e] text-[#cccccc]"
+              : "bg-gray-100 text-black"
+          }`}
+        >
+          <div className="flex flex-1 justify-between">
+            <h2 className={h3}>Therapy Analytics</h2>
+            <p className={pStyles}>2024</p>
+          </div>
+          <p className={pStyles}>
+            Therapy Analytics is a versatile app designed to efficiently track
+            therapy sessions for children dealing with a wide range of concerns.
+            From anxiety to behavioral issues and developmental challenges,
+            therapists can use its comprehensive tools to monitor progress,
+            document insights, and customize treatment plans for each child's
+            unique needs, promoting effective and informed therapy outcomes.
+          </p>
+
+          <a
+            href="https://www.therapyanalytics.co/"
             target="_blank"
             className="flex flex-row gap-2 items-center w-fit hover:opacity-80"
           >
